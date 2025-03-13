@@ -1,17 +1,13 @@
 from ubuntu:jammy
 
+#APT-PLACE-HOLDER
+
 run apt update \
 	&& apt install -y curl aria2 \
 	&& apt clean
 
-run curl -fsSL https://ollama.com/install.sh | sh
-
-#run set -e \
-#	&& mkdir -p /opt/ollama \
-#	&& cd /opt/ollama \
-#	&& aria2c -x 10 -j 10 -c "https://github.com/ollama/ollama/releases/download/v0.5.13/ollama-linux-amd64.tgz" -o "ollama-linux-amd64.tgz" \
-#	&& tar -zxvf ollama-linux-amd64.tgz \
-#	&& rm -rf ollama-linux-amd64.tgz
+run set -e && echo install source && curl -fsSL https://ollama.com/install.sh | sh
+#INSTALL-OLLAMA
 
 run curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh | bash
 run mkdir /opt/filebrowser
