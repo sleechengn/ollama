@@ -12,6 +12,7 @@ run set -e && echo install source && curl -fsSL https://ollama.com/install.sh | 
 run curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh | bash
 run mkdir /opt/filebrowser
 
+RUN apt update
 RUN apt install -y nginx ttyd
 RUN rm -rf /etc/nginx/sites-enabled/default
 ADD ./NGINX /etc/nginx/sites-enabled/
