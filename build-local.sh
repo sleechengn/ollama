@@ -1,5 +1,11 @@
 #!/usr/bin/bash
 set -e
+
+pushd $(dirname $0)/.source
+rm -rf ollama-linux-amd64.tgz*
+aria2c -x 10 -j 10 -k 1M "https://github.com/ollama/ollama/releases/download/v0.6.5/ollama-linux-amd64.tgz" -o "ollama-linux-amd64.tgz"
+popd
+
 mkdir -p /opt/tmp
 rm -rf /opt/tmp/ollama-build
 cp -r . /opt/tmp/ollama-build
