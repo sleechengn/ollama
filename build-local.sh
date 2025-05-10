@@ -1,9 +1,10 @@
 #!/usr/bin/bash
 set -e
-
+apt install -y curl aria2
 pushd $(dirname $0)/.source
 rm -rf ollama-linux-amd64.tgz*
-aria2c -x 10 -j 10 -k 1M "https://github.com/ollama/ollama/releases/download/v0.6.7-rc2/ollama-linux-amd64.tgz" -o "ollama-linux-amd64.tgz"
+OLLLAMA=$(curl -s https://api.github.com/repos/ollama/ollama/releases/latest | grep browser_download_url |grep linux|grep amd64| grep -v rocm| cut -d'"' -f4)
+aria2c -x 10 -j 10 -k 1M $OLLAMA -o ollama-linux-amd64.tgz
 popd
 
 mkdir -p /opt/tmp
