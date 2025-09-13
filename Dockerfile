@@ -12,10 +12,10 @@ run set -e && echo install source && curl -fsSL https://ollama.com/install.sh | 
 run curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh | bash
 run mkdir /opt/filebrowser
 
-RUN apt update
-RUN apt install -y nginx ttyd
-RUN rm -rf /etc/nginx/sites-enabled/default
-ADD ./NGINX /etc/nginx/sites-enabled/
+run apt update
+run apt install -y nginx ttyd
+run rm -rf /etc/nginx/sites-enabled/default
+add ./NGINX /etc/nginx/sites-enabled/
 
 
 copy ./docker-entrypoint.sh /
