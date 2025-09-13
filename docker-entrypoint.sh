@@ -2,6 +2,6 @@
 
 nohup nginx > /dev/null &
 nohup filebrowser -d /opt/filebrowser/filebrowser.db -a 127.0.0.1 -p 8081 -b /filebrowser -r / --noauth > /dev/null &
-nohup ttyd --port 8082 --base-path /ttyd /usr/bin/bash > /dev/null &
+nohup ttyd.x86_64 --port 8082 -W --base-path /ttyd -t enableTrzsz=true -t enableZmodem=true /usr/bin/bash > /dev/null &
 
 ollama $*
