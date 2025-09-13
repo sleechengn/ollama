@@ -47,7 +47,7 @@ run apt install -y nginx
 run rm -rf /etc/nginx/sites-enabled/default
 add ./NGINX /etc/nginx/sites-enabled/
 
-run apt install -y lrzsz
+run apt install -y tmux lrzsz
 
 copy ./docker-entrypoint.sh /
 run chmod +x /docker-entrypoint.sh
